@@ -1,0 +1,52 @@
+<div class="question_left">
+    <img class="logo_grey" src="images/Elliv_logo_grey.png" alt="Elliv logo">
+
+    <h2>{label}</h2>
+    <div class="awardDescription">{details}</div>
+    <p class="iconDescription">You can click on the information icon to view more information on each nominee.</p>
+    
+    <div class="nav_icons">
+        <a href="/poll/question/__/__">
+            <img class="nav_arrow" src="images/Elliv_arrow_left.png" alt="Back arrow">
+        </a>
+        
+        {poll_questions}
+        <a href="/poll/question/{poll_id}/{question_order}">
+            <img class="nav_button" id="current" src="images/Elliv_dot_filled.png" alt="Navigation for question 1">
+        </a>
+        {/poll_questions}
+        
+        <img class="nav_button" src="images/Elliv_submitIcon.png" alt="Navigation for submission page">
+        <img class="nav_arrow" src="images/Elliv_arrow_right.png" alt="Forward arrow">
+    </div>
+</div>
+<div class="question_right">
+    <div class="nominee" id="nominee1">
+        <a class="nominee_text" href="#">Nominee One</a>
+        <div class="nominee_photo">
+            <img src="images/smile_photo_v1.jpg">
+        </div>
+        <a id="nominee1_info" class="nominee_info"><img src="images/Elliv_infoIcon.png"></a>
+    </div>
+    <div class="nominee" id="nominee2">
+        <a class="nominee_text" href="#">Nominee Two</a>
+        <div class="nominee_photo">
+            <img src="images/smile_photo_v2.jpg">
+        </div>
+        <a id="nominee1_info" class="nominee_info"><img src="images/Elliv_infoIcon.png"></a>
+    </div>
+    <div class="nominee" id="nominee3">
+        <a class="nominee_text" href="#">Nominee Three</a>
+        <div class="nominee_photo">
+            <img src="images/smile_photo_v3.jpg">
+        </div>
+        <a id="nominee1_info" class="nominee_info"><img src="images/Elliv_infoIcon.png"></a>
+    </div>
+    <div class="nominee" id="nominee4">
+        <a class="nominee_text" href="#">Nominee Four</a>
+        <div class="nominee_photo">
+            <img src="images/smile_photo_v4.jpg">
+        </div>
+        <a id="nominee1_info" class="nominee_info"><img src="images/Elliv_infoIcon.png"></a>
+    </div>
+</div>
