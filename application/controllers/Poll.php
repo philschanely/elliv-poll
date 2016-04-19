@@ -8,8 +8,8 @@ class Poll extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        
-        $this->authenticate->check_for_auth();
+		
+		$this->authenticate->check_for_auth();
         $this->user_id = $this->dso->user->user_id;
     }
     

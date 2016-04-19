@@ -47,8 +47,14 @@ class MY_Authenticate extends CI_Authenticate {
         {
             $this->CI->dso->user = $user;
             $this->CI->dso->auth_in_app = TRUE;
+			
+			// Local additions for login rights
+			$this->CI->dso->is_admin = $user->access_level <= ACCESS_LEVEL_ADMIN ? TRUE : FALSE;
+			$this->CI->dso->is_superadmin = $user->access_level <= ACCESS_LEVEL_SUPERADMIN ? TRUE : FALSE;
+        	
         }
-        
+		
+		
         return $user;
     }
     

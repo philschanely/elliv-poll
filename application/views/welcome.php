@@ -1,3 +1,7 @@
+{is_admin?}
+<a class="link-admin" href="/admin/">Admin Panel</a>
+{/is_admin?}
+
 <img class="logo" src="/assets/images/Elliv_logo_white.png" alt="Elliv logo">
         
 <h1><small>Welcome to the</small><br />

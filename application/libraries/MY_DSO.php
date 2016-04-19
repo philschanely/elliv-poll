@@ -19,6 +19,8 @@ class MY_DSO extends CI_DSO {
         $this->page_id = 'page-unknown';
         $this->crumbs = breadcrumbs();
         $this->auth_in_app = FALSE;
+		$this->is_admin = FALSE;
+		$this->is_superadmin = FALSE;
         $this->stylesheets = array();
         $this->base_url = base_url();
         $this->hasJavaScripts = FALSE;
