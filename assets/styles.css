@@ -10,6 +10,10 @@ body {
     letter-spacing:1px;
 }
 
+.alert.alert-warning {
+	color:#F47421;
+}
+
 a {
     color: #ffffff;
     font-size: 1.6em;
@@ -208,6 +212,8 @@ img.logo {
     margin-right: auto;
     margin-bottom: 10vh;
 }
+
+#intro p { text-align:center; }
 
 .logo_grey {
     margin-top: 10%;
