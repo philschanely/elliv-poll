@@ -24,12 +24,12 @@
             <div id="nominee{order}_info" class="info">
                 <div class="modal">
                     <h2>{label}</h2>
-                    <a href="#close" title="Close" class="close">&times;</a>
+                    <a href="#nominee{order}" title="Close" class="close">&times;</a>
                     <div class="info_details">
                         {info}
                     </div>
                 </div>
-                <a href="#" title="Close" class="close-full"></a>
+                <a href="#nominee{order}" title="Close" class="close-full"></a>
             </div>
         </li>
 		{/options}
