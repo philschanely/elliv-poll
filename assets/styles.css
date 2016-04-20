@@ -372,6 +372,9 @@ img.logo {
 .nominee_info:hover {
   background-image: url(images/Elliv_checkIcon_transparent.png);
 }
+.nominee_info:active {
+  background-image: url(images/Elliv_checkIcon_filled.png);
+}
 .nominee_photo {
   display: block;
   position: absolute;

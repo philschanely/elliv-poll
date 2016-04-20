@@ -1,10 +1,10 @@
-<h1><small>Elliv Poll</small><br/> Log in</h1>
+<h1><small>Elliv Poll</small><br/> Sign in</h1>
 <form action="{base_url}authenticate/login" method="post">
     {login_error?}
     <p class="alert alert-warning">{message}</p>
     {/login_error?}
 
-    <p>Please log in with your Cedarville University username and password.</p>
+    <p>Please sign in with your Cedarville University username and password.</p>
     <ul>
         <li class="control-group">
             <label class="control-label">Username</label>

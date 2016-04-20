@@ -2,13 +2,13 @@
     <h1><img class="logo_grey" src="/assets/images/Elliv_logo_grey.png" alt="Elliv 2016"></h1>
     <h2>Are you ready to submit?</h2>
     <div class="awardDescription">
-        <p>You can now review your answers before submitting. This is your last chance to change anything as you will not be able to change your selections later.</p>
+        <p>You can review your answers now, but you will not be able to change your selections after submitting your ballot.</p>
     </div>
     
     {has_ballot_items?}
     <p class="iconDescription">Click on an award to go back and change your answer.</p>
     <p class="scrollDown" id="submit_text">Scroll down to change your selections</p>
-    <a class="button" id="button_submit" href="/poll/end/{poll_id}">Submit</a>
+    <a class="button" id="button_submit" href="/poll/end/{poll_id}">Submit Ballot</a>
     {/has_ballot_items?}
     
     {has_no_ballot_items?}

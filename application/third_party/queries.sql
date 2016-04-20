@@ -14,3 +14,11 @@ CREATE OR REPLACE VIEW Completed_Poll_Details AS
 SELECT * FROM Completed_Poll 
 JOIN User ON Completed_Poll.user = User.user_id
 JOIN Poll ON Completed_Poll.poll = Poll.poll_id;
+
+CREATE OR REPLACE VIEW `Option_Details` AS
+SELECT `Option`.*, 
+       q_id, Question.label AS `question_label`, Question.order as question_order, 
+       Poll.poll_id, Poll.title AS `poll_title` 
+FROM `Option` 
+JOIN `Question` ON `Option`.`question` = `Question`.`q_id` 
+JOIN `Poll` ON `Question`.`poll` = `Poll`.`poll_id`;

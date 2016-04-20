@@ -6,6 +6,13 @@ class Ballot_model extends CI_Model {
         $this->load->database();
     }
     
+    public function get_option_info($o_id)
+    {
+        $this->db->where('o_id', $o_id);
+        $option = cfr('Option_Details', 'row');
+        
+        return $option;
+    }
     
     public function save_selection($user_id, $o_id)
     {

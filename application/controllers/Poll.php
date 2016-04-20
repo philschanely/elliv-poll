@@ -11,6 +11,10 @@ class Poll extends CI_Controller {
 		
 		$this->authenticate->check_for_auth();
         $this->user_id = $this->dso->user->user_id;
+        
+        $this->load->model(array(
+            'poll_model'
+        ));
     }
     
     /**
@@ -23,14 +27,7 @@ class Poll extends CI_Controller {
      */
     public function index($poll_id=1)
     {
-        $this->load->model(array(
-            'poll_model'
-        ));
-        
-        if ($this->poll_model->is_poll_submitted($poll_id, $this->user_id))
-        {
-            redirect('/poll/end/' . $poll_id);
-        }
+        $this->_is_submitted($poll_id, $this->user_id);
         
         // Load poll information
         $poll = $this->poll_model->get($poll_id);
@@ -50,10 +47,6 @@ class Poll extends CI_Controller {
      */
     public function end($poll_id)
     {
-        $this->load->model(array(
-            'poll_model'
-        ));
-        
         if (! $this->poll_model->is_poll_submitted($poll_id, $this->user_id)) 
         {
             $this->poll_model->submit_poll($poll_id, $this->user_id);
@@ -73,12 +66,11 @@ class Poll extends CI_Controller {
     
     public function question($poll_id, $question_order=1, $return_to_review=0)
     {
+        $this->_is_submitted($poll_id, $this->user_id);
+        
         $this->load->model(array(
-            'poll_model',
             'question_model'
         ));
-        
-        $user_id = 1; #temp user
         
         $question = NULL;
         $questions = array();
@@ -100,7 +92,7 @@ class Poll extends CI_Controller {
         }
         
         $question = 
-            $this->poll_model->get_question_by_order($user_id, $question_order);
+            $this->poll_model->get_question_by_order($poll_id, $question_order);
         $options = 
             $this->question_model->get_options($question->q_id, $this->user_id);
         
@@ -135,9 +127,7 @@ class Poll extends CI_Controller {
     
     public function review($poll_id)
     {
-        $this->load->model(array(
-            'poll_model'
-        ));
+        $this->_is_submitted($poll_id, $this->user_id);
         
         $ballot_items = $this->poll_model->get_review_info($poll_id, $this->user_id);
         
@@ -152,9 +142,13 @@ class Poll extends CI_Controller {
     public function save_selection($o_id, $return_to_review=0)
     {
         $this->load->model(array(
-            'ballot_model',
-            'poll_model'
+            'ballot_model'
         ));
+        
+        $option = $this->ballot_model->get_option_info($o_id);
+        
+        // TODO: Get poll id from o_id
+        $this->_is_submitted($option->poll_id, $this->user_id);
         
         // Save the user's selected option
         $ballot_item = $this->ballot_model->save_selection($this->user_id, $o_id);
@@ -173,6 +167,14 @@ class Poll extends CI_Controller {
         else 
         {
             redirect("/poll/question/{$ballot_item->poll_id}/{$next_question}", 'location');
+        }
+    }
+    
+    private function _is_submitted($poll_id, $user_id)
+    {
+        if ($this->poll_model->is_poll_submitted($poll_id, $user_id))
+        {
+            redirect('/poll/end/' . $poll_id);
         }
     }
 }
