@@ -4,21 +4,22 @@
 	<div class="awardDescription">
 		{question.details}
 	</div>
-	<p class="iconDescription">You can click on the information icon to view more information on each nominee.</p>
+	<p class="iconDescription">To learn more, click on the nominee's name. <br/>To vote, click the circle next to their name.</p>
 	<p class="scrollDown">Scroll down to choose your nominee</p>
 </div>
 <div class="question_right">
 	<ul>
 		{options}
         <li id="nominee{order}" class="nominee {is_selected?}selected{/is_selected?}"> 
-            <a href="/poll/save_selection/{o_id}/{return_to_review}" class="nominee_text">{label}</a>
+            <a class="nominee_text" href="#nominee{order}_info" title="Click for more information" >{label}</a>
             {has_image?}
             <div class="nominee_photo">
                 <img src="{asset}" />
             </div>
             {/has_image?}
-            <a id="nominee{order}" href="#nominee{order}_info" title="Click for more information" class="nominee_info">
-                <img src="/assets/images/Elliv_infoIcon.png" alt="Info" />
+            <a id="nominee{order}" href="/poll/save_selection/{o_id}/{return_to_review}" 
+            	class="nominee_info" title="Click to vote for this nominee">
+                Vote for this nominee
             </a>
             <div id="nominee{order}_info" class="info">
                 <div class="modal">
@@ -28,6 +29,7 @@
                         {info}
                     </div>
                 </div>
+                <a href="#" title="Close" class="close-full"></a>
             </div>
         </li>
 		{/options}

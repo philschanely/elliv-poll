@@ -4,17 +4,8 @@
 @color-lime: #afbf36;
 @color-teal: #1a8b71;
 
-html{
-    
-}
 
-body {
-    font-size: 62.5%;
-    margin: auto;
-    box-sizing: border-box;
-    font-family: 'Muli', sans-serif;
-    letter-spacing:1px;
-}
+// STYLES
 
 .alert.alert-warning {
 	color:#F47421;
@@ -38,6 +29,14 @@ a {
     background-color: #ffffff;
 }
 
+#award1, #award3, #award5 {
+    background-color: #afbf36;
+}
+
+#award2, #award4 {
+    background-color: #1a8b71;
+}
+
 .award_text {
     display: block;
     position: absolute;
@@ -47,27 +46,26 @@ a {
     margin: 0px;
 }
 
-#award1, #award3, #award5 {
-    background-color: #afbf36;
-}
-
-#award2, #award4 {
-    background-color: #1a8b71;
-}
-
 .awardDescription {
     margin-left: 10%;
     width: 80%;
-}
-
-.awardDescription p {
-    color: #404041;
-    font-size: 2em;
-    line-height: 30px;
+    p {
+        color: #404041;
+        font-size: 2em;
+        line-height: 30px;
+    }
 }
 
 .background_blue {
     background-color: #0b4358;
+}
+
+body {
+    font-size: 62.5%;
+    margin: auto;
+    box-sizing: border-box;
+    font-family: 'Muli', sans-serif;
+    letter-spacing:1px;
 }
 
 .button {
@@ -78,31 +76,26 @@ a {
     text-align: center;
     padding: 10px 10px 10px 0px;
     border: none;
-    
     background: url(images/Elliv_voteNow.png) no-repeat;
     background-position: right;
-    
     display: block;
     width: 200px;
     margin: auto;
     margin-bottom: 100px;
-}
-
-.button:hover {
-    color: #404041;
+    &:hover {
+        color: #404041;
+    }
 }
 
 h1 {
     font-style: normal;
     font-weight: 700;
-    
     color: #ffffff;
     font-size: 5em;
     font-weight: 700;
     text-transform:uppercase;
     text-align: center;
     letter-spacing: 7px;
-    
     width: 80%;
     margin: auto;
     padding-top: 30px;
@@ -118,6 +111,8 @@ h2 {
     margin-left: 10%;
     width: 80%;
 }
+
+html {}
 
 .iconDescription a { color:#404041; font-size:inherit; }
 
@@ -141,75 +136,74 @@ img.logo {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-}
-
-.info:target {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.info a {
-    color: #f47421;
-    float: right;
-    width: 20%;
-    height: 10%;
-    text-align: right;
-    font-size: 2em;
-    font-weight: 700;
-    transition-duration: .5s;
-}
-
-.info a:hover {
-    color: #404041;
-    transition-duration: .5s;
-}
-
-.info .close_black {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-}
-
-.info h2 {
-    float: left;
-    box-sizing: border-box;
-    width: 80%;
-    height: 10%;
-    margin: 0;
-    font-size: 2em;
-}
-
-.info p {
-    color: #404041;
-    font-size: 1.4em;
-}
-
-.info .modal {
-    width: 50%;
-    box-sizing: border-box;
-    position: relative;
-    margin: 10vh auto;
-    padding: 50px;
-    box-sizing:border-box;
-    background-color: #ffffff;
-    height:80%;
-}
-
-.info .modal a.close { 
-    position:relative; top:-2px; 
-    color:#404041;
-}
-
-.info .info_details a {
-    float:none; width:auto; height:auto; text-align: inherit; font-size:inherit; 
-}
-
-.info .modal .info_details {
-    height:85%;
-    clear:both;
-    overflow:auto;
+    a {
+        color: #f47421;
+        float: right;
+        width: 20%;
+        height: 10%;
+        text-align: right;
+        font-size: 2em;
+        font-weight: 700;
+        transition-duration: .5s;
+        &:hover {
+            color: #404041;
+            transition-duration: .5s;
+        }
+    }
+    .close_black {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
+    }
+    .close-full {
+        display:block;
+        width: 100%; height: 100%;
+        float:none;
+        position:absolute;
+        top:0; left: 0;
+        z-index:2;
+    }
+    h2 {
+        float: left;
+        box-sizing: border-box;
+        width: 80%;
+        height: 10%;
+        margin: 0;
+        font-size: 2em;
+    }
+    .info_details a {
+        float:none; width:auto; height:auto; 
+        text-align: inherit; font-size:inherit; 
+    }
+    .modal {
+        width: 50%;
+        box-sizing: border-box;
+        position: relative;
+        margin: 10vh auto;
+        padding: 50px;
+        box-sizing:border-box;
+        background-color: #ffffff;
+        height:80%;
+        z-index:3;
+        a.close { 
+            position:relative; top:-2px; 
+            color:#404041;
+        }
+        img { max-width:100%; }
+        .info_details {
+            height:85%;
+            clear:both;
+            overflow:auto;
+        }
+    }
+    p {
+        color: #404041;
+        font-size: 1.4em;
+    }
+    &:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 #intro {
@@ -217,16 +211,13 @@ img.logo {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10vh;
+    p { text-align:center; }
 }
-
-#intro p { text-align:center; }
 
 .logo_grey {
     margin-top: 10%;
     max-width: 40px;
 }
-
-.modal img { max-width:100%; }
 
 .nav {
     clear: both;
@@ -234,111 +225,93 @@ img.logo {
     z-index:2;
     left: 0;
     bottom: 0;
-    
     padding-left: 5%;
     padding-bottom: 5vh;
     padding-top: 5vh;
     width: 40%;
     text-align: center;
-    
     background-color: rgba(255,255,255,0.8);
+    &:after{
+        clear: both;
+        display: block;
+        content: "";
+    }
 }
 
-.nav:after{
-    clear: both;
-    display: block;
-    content: "";
-}
-
-p.nav_arrow {
+.nav_arrow {
     margin: 3px 0 0;
+    float:left;
+    a {
+        display: block;
+        float: left;
+        width: 10px; height: 18px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        color: rgba(0,0,0,0);
+        transition-duration: .5s;
+    }
+    #arrow_left {
+        background-image: url(images/Elliv_arrow_left.png);
+        transition-duration: .5s;
+        margin-left: 0;
+        &::hover {
+            background-image: url(images/Elliv_arrow_left_hover.png);
+            transition-duration: .5s;
+        }
+    }
+    #arrow_right {
+        background-image: url(images/Elliv_arrow_right.png);
+        margin-right: 0;
+        &:hover {
+            background-image: url(images/Elliv_arrow_right_hover.png);
+            transition-duration: .5s;
+        }
+    }
 }
 
-.nav_arrow a {
-    display: block;
-    float: left;
-    width: 10px;
-    height: 18px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: rgba(0,0,0,0);
-        
-    transition-duration: .5s;
-}
-
-.nav_arrow #arrow_left {
-    background-image: url(images/Elliv_arrow_left.png);
-    transition-duration: .5s;
-    margin-left: 0;
-}
-
-.nav_arrow #arrow_right {
-    background-image: url(images/Elliv_arrow_right.png);
-    margin-right: 0;
-}
-
-.nav_arrow #arrow_left:hover {
-    background-image: url(images/Elliv_arrow_left_hover.png);
-    transition-duration: .5s;
-}
-
-.nav_arrow #arrow_right:hover {
-    background-image: url(images/Elliv_arrow_right_hover.png);
-    transition-duration: .5s;
-}
-
-.nav_button, .nav_arrow {
+.nav_button {
     float: left;
     margin-left: 4.5%;
     margin-right: 4.5%;
-}
-
-/* Incomplete */
-.nav_button a {
-    display: block;
-    width: 18px;
-    height: 24px;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position:center 14.285714%;
-    color: rgba(0,0,0,0);
-    background-image: url(images/sprite-dots.png);
-}
-
-.nav_button.nav_review a, 
-.nav_button.nav_review a:hover {
-    background-position: center center;
-}
-
-/* Incomplete hover */
-.nav_button a:hover { background-position:center 0%; }
-
-/* Incomplete selected */
-.nav_button #current { background-position:center 42.857143%; }
-
-/* Incomplete selected hover */
-.nav_button #current:hover { background-position:center 28.571429%; }
-
-/* Completed */
-.nav_button a.completed { background-position: center 71.428571%; }
-
-/* Completed hover */
-.nav_button a.completed:hover { background-position: center 57.142857%; }
-
-/* Completed selected */
-.nav_button a#current.completed { background-position: center 100%; }
-
-/* Completed selected hover */
-.nav_button a#current.completed:hover { background-position: center 85.714286%; }
-
-
-.nav_button .submit {
-    background-image: url(images/Elliv_submitIcon.png);
-}
-
-.nav_button .submit:hover {
-    background-image: url(images/Elliv_submitIcon_hover.png);
-    transition-duration: .5s;
+    a {
+        display: block;
+        width: 18px; height: 24px;
+        color: rgba(0,0,0,0);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position:center 14.285714%;
+        background-image: url(images/sprite-dots.png);
+        &.completed { 
+            background-position: center 71.428571%; 
+            &:hover { background-position: center 57.142857%; }
+        }
+        &:hover { background-position:center 0%; }
+    }
+    #current { 
+        background-position:center 42.857143%; 
+        &.completed { 
+            background-position: center 100%; 
+            &:hover { background-position: center 85.714286%; }
+        }
+        &:hover { background-position:center 28.571429%; }
+    }
+    &.nav_review {
+        a {
+            background-position: center center;
+            background-image: url(images/Elliv_submitIcon.png);
+            &:hover {
+                background-position: center center;
+                background-image: url(images/Elliv_submitIcon_hover.png);
+            }
+        }
+    }
+    &.submit {
+        background-image: url(images/Elliv_submitIcon.png);
+        &:hover {
+            background-image: url(images/Elliv_submitIcon_hover.png);
+            transition-duration: .5s;
+        }
+    }
 }
 
 .nav_icons {
@@ -352,76 +325,26 @@ p.nav_arrow {
     display: block;
     position: relative;
     height: 25vh;
-    
     background-color: #ffffff;
-}
-
-#nominee1 {
-    background-color: #afbf36;
-}
-
-#nominee2 {
-    background-color: #f47421;
-}
-
-#nominee3 {
-    background-color: #0b4358;
-}
-
-#nominee4 {
-    background-color: #1a8b71;
-}
-
-.nominee.selected .nominee_photo { display:none; }
-
-.nominee.selected#nominee1, 
-.nominee.selected#nominee2, 
-.nominee.selected#nominee3, 
-.nominee.selected#nominee4 { background-color:white; }
-
-.nominee.selected#nominee1 a { color: #afbf36; }
-.nominee.selected#nominee2 a { color: #f47421; }
-.nominee.selected#nominee3 a { color: #0b4358; }
-.nominee.selected#nominee4 a { color: #1a8b71; }
-
-.nominee_text {
-    display: block;
-    position: absolute;
-    height: 25vh;
-    width: 80%;
-    padding: 10.75vh 10% 0;
-    margin: 0px;
-    z-index: 2;
-    text-shadow:0 0 3px black;
-    font-size: 2.5em;
-    transition-duration: .5s; 
-    box-sizing:border-box;
-}
-
-.selected .nominee_text{ text-shadow: none; }
-
-.nominee_text:hover {
-    font-size: 3em;
-    background-color: rgba(255,255,255,.2);
-    transition-duration: .5s;
-    padding: 9.5vh 6%;
-}
-
-.nominee_photo {
-    display: block;
-    position: absolute;
-    z-index: 1;
-    height: 25vh;
-    width: 80%;
-    overflow: hidden;
-}
-
-.nominee_photo img {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    margin: auto;
-    width: 100%;
+    &.selected {
+        .nominee_photo { display:none; }
+        &#nominee1,
+        &#nominee2, 
+        &#nominee3, 
+        &#nominee4 { background-color:white; }
+        &#nominee1 a { color: #afbf36; }
+        &#nominee2 a { color: #f47421; }
+        &#nominee3 a { color: #0b4358; }
+        &#nominee4 a { color: #1a8b71; }
+    }
+    &#nominee1,
+    &#nominee1 .nominee_info { background-color: #afbf36; }
+    &#nominee2,
+    &#nominee2 .nominee_info { background-color: #f47421; }
+    &#nominee3,
+    &#nominee3 .nominee_info { background-color: #0b4358; }
+    &#nominee4,
+    &#nominee4 .nominee_info { background-color: #1a8b71; }
 }
 
 .nominee_info {
@@ -434,11 +357,44 @@ p.nav_arrow {
     height: 100%;
     box-sizing: border-box;
     transition-duration: .5s;
+	text-indent:-9999px;
+	background-image:url(images/Elliv_checkIcon_border.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+    &:hover {
+        background-image:url(images/Elliv_checkIcon_transparent.png);
+    }
 }
 
-.nominee_info:hover {
-    background-color: rgba(255,255,255,.2);
-    transition-duration: .5s;
+.nominee_photo {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    height: 25vh;
+    width: 80%;
+    overflow: hidden;
+    img {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        width: 100%;
+    }
+}
+
+.nominee_text {
+    display: block;
+    position: absolute;
+    height: 25vh;
+    width: 80%;
+    padding: 10.75vh 10% 0;
+    margin: 0px;
+    z-index: 2;
+    text-shadow:0 0 6px rgba(0,0,0,.5);
+    font-size: 2.5em;
+    transition-duration: .5s; 
+    box-sizing:border-box;
+    &:hover { background-color: rgba(255,255,255,.2); }
 }
 
 p {
@@ -447,18 +403,16 @@ p {
     line-height: 25px;
     letter-spacing: 1px;
     font-weight: 400;
-}
-
-p.iconDescription {
-    color: #898989;
-    margin-left: 10%;
-    width: 80%;
-    font-size: 1.4em;
-    padding-bottom: 15vh;
-}
-
-p.scrollDown {
-    display: none;
+    &.iconDescription {
+        color: #898989;
+        margin-left: 10%;
+        width: 80%;
+        font-size: 1.4em;
+        padding-bottom: 15vh;
+    }
+    .scrollDown {
+        display: none;
+    }
 }
 
 .question_left {
@@ -467,12 +421,11 @@ p.scrollDown {
     width: 50%;
     background-color: #ffffff;
     z-index:1;
-}
-
-.question_left h1 {
-    padding: 0;
-    margin: auto;
-    text-align: left;
+    h1 {
+        padding: 0;
+        margin: auto;
+        text-align: left;
+    }
 }
 
 .question_right {
@@ -482,21 +435,26 @@ p.scrollDown {
     height: 100vh;
     width: 50%;
     z-index:3;
-}
-
-.question_right ul {
-    margin: 0;
-    padding: 0;
+    ul {
+        margin: 0;
+        padding: 0;
+    }
 }
 
 .row {
 	clear: both;
+    &:after {
+        clear: both;
+        display: block;
+        content: “”;
+    }
 }
 
-.row:after {
-	clear: both;
-	display: block;
-	content: “”;
+.selected {
+    .nominee_info {
+        background-image:url(images/Elliv_checkIcon_filled.png);
+    }
+    .nominee_text{ text-shadow: none; }
 }
 
 .selection {
@@ -506,18 +464,13 @@ p.scrollDown {
     width: 100%;
     padding-top: 7.5vh;
     margin: 0px;
-    
     font-size: 2em;
     line-height: 25px;
-}
-
-.selection small {
-    color: #404041;
-}
-
-.selection:hover {
-    background-color: rgba(255,255,255,.2);
-    transition-duration: .5s;
+    &:hover {
+        background-color: rgba(255,255,255,.2);
+        transition-duration: .5s;
+    }
+    small { color: #404041; }
 }
 
 #selections {
@@ -527,29 +480,26 @@ p.scrollDown {
     margin-bottom: 5vh;
     margin-top: 5vh;
     text-align: center;
-}
-#selections ul { padding:0; }
-
-#selections li {
-    color:white;
-    font-size:1.6em; 
-    letter-spacing:1px;
-    list-style:none;
-    margin: 5px;
-}
-
-#selections small {
-    color: f47421;
+    li {
+        color:white;
+        font-size:1.6em; 
+        letter-spacing:1px;
+        list-style:none;
+        margin: 5px;
+    }
+    small { color: f47421; }
+    ul { padding:0; }
 }
 
 @media screen and (max-width:1000px) {
-    h2 {
-        font-size: 2.5em;
-    }
-    
-    .awardDescription p, .nominee_text {
+    .awardDescription p, 
+    .nominee_text {
         font-size: 2em;
         line-height: 30px;
+    }
+    
+    h2 {
+        font-size: 2.5em;
     }
     
     .info .modal { width:80%; }
@@ -561,16 +511,18 @@ p.scrollDown {
         margin-right: 2%;
     }
     
-    .nominee_text:hover {
-        font-size: 2.5em;
-    }
-    
     .nominee_info img {
         width: 50%;
     }
 }
 
 @media screen and (max-width:750px) {
+    
+    .awardDescription p, .nominee_text {
+        font-size: 1.6em;
+        line-height: 25px;
+    }
+    
     #button_submit {
         margin-top: 10%;
     }
@@ -581,6 +533,7 @@ p.scrollDown {
     
     h2 {
         font-size: 2.5em;
+		text-align:center;
     }
     
     .logo_grey {
@@ -589,16 +542,17 @@ p.scrollDown {
         padding: 10vh 0 5vh 0;
     }
     
-    .info .modal {
-        box-sizing: border-box;
-        width: 80%;
-        height:auto;
-        margin: 80px auto;
-        padding: 30px;
-        margin-top: 30px;
+    .info {
+        .modal {
+            box-sizing: border-box;
+            width: 80%;
+            height:90%;
+            margin: 80px auto;
+            padding: 30px;
+            margin-top: 30px;
+            .info_details { height:90%; }
+        }
     }
-    
-    .info .modal .info_details { height:auto; }
     
     #intro {
         width: 80%;
@@ -615,6 +569,11 @@ p.scrollDown {
         position: inherit;
     }
     
+    .nav_arrow {
+        margin: 0;
+        padding: 0;
+    }
+    
     .nav_button a {
         width: 20px;
         height: 26.666667px;
@@ -622,57 +581,50 @@ p.scrollDown {
         margin-right: 5.25%;
     }
     
-    .nav_arrow {
-        margin: 0;
-        padding: 0;
-    }
-    
     .nav_icons {
         padding: 0;
         list-style: none;
     }
+    
+    .nominee { height:100px; }
     
     .nominee_info img {
         width: 40%;
     }
     
     .nominee_text {
-        font-size: 3em;
+        font-size: 2em;
+        height:100%;
+        padding:30px 10px;
     }
+    
+    .nominee_photo { height:auto; }
     
     p {
         font-size: 1.6em;
+        &.iconDescription { padding-bottom: 0; }
+        &.scrollDown {
+            display: none;
+            color: #404041;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            margin-top: 20vh;
+
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }  
     }
     
-    .awardDescription p, .nominee_text {
-        font-size: 1.6em;
-        line-height: 25px;
-    }
-    
-    p.iconDescription {
-        display: none;
-    }
-    
-    p.scrollDown {
-        display: block;
-        color: #404041;
-        width: 80%;
-        margin: auto;
-        text-align: center;
-        margin-top: 20vh;
-        
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }  
-    
-    .question_left,.question_right {
+    .question_left,
+    .question_right {
         width: 100%;
     }
     
     .question_left {
         height: auto;
-        margin-bottom: 100px;
+        margin-bottom: 30px;
     }
     
     .question_right {

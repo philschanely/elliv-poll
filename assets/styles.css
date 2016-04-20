@@ -1,10 +1,3 @@
-body {
-  font-size: 62.5%;
-  margin: auto;
-  box-sizing: border-box;
-  font-family: 'Muli', sans-serif;
-  letter-spacing: 1px;
-}
 .alert.alert-warning {
   color: #F47421;
 }
@@ -23,14 +16,6 @@ a {
   height: 20vh;
   background-color: #ffffff;
 }
-.award_text {
-  display: block;
-  position: absolute;
-  height: 12.5vh;
-  width: 100%;
-  padding-top: 7.5vh;
-  margin: 0px;
-}
 #award1,
 #award3,
 #award5 {
@@ -39,6 +24,14 @@ a {
 #award2,
 #award4 {
   background-color: #1a8b71;
+}
+.award_text {
+  display: block;
+  position: absolute;
+  height: 12.5vh;
+  width: 100%;
+  padding-top: 7.5vh;
+  margin: 0px;
 }
 .awardDescription {
   margin-left: 10%;
@@ -51,6 +44,13 @@ a {
 }
 .background_blue {
   background-color: #0b4358;
+}
+body {
+  font-size: 62.5%;
+  margin: auto;
+  box-sizing: border-box;
+  font-family: 'Muli', sans-serif;
+  letter-spacing: 1px;
 }
 .button {
   font-weight: 700;
@@ -115,10 +115,6 @@ img.logo {
   height: 100%;
   box-sizing: border-box;
 }
-.info:target {
-  opacity: 1;
-  pointer-events: auto;
-}
 .info a {
   color: #f47421;
   float: right;
@@ -140,6 +136,16 @@ img.logo {
   width: 100%;
   height: 100vh;
 }
+.info .close-full {
+  display: block;
+  width: 100%;
+  height: 100%;
+  float: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
 .info h2 {
   float: left;
   box-sizing: border-box;
@@ -148,9 +154,12 @@ img.logo {
   margin: 0;
   font-size: 2em;
 }
-.info p {
-  color: #404041;
-  font-size: 1.4em;
+.info .info_details a {
+  float: none;
+  width: auto;
+  height: auto;
+  text-align: inherit;
+  font-size: inherit;
 }
 .info .modal {
   width: 50%;
@@ -160,23 +169,28 @@ img.logo {
   box-sizing: border-box;
   background-color: #ffffff;
   height: 80%;
+  z-index: 3;
 }
 .info .modal a.close {
   position: relative;
   top: -2px;
   color: #404041;
 }
-.info .info_details a {
-  float: none;
-  width: auto;
-  height: auto;
-  text-align: inherit;
-  font-size: inherit;
+.info .modal img {
+  max-width: 100%;
 }
 .info .modal .info_details {
   height: 85%;
   clear: both;
   overflow: auto;
+}
+.info p {
+  color: #404041;
+  font-size: 1.4em;
+}
+.info:target {
+  opacity: 1;
+  pointer-events: auto;
 }
 #intro {
   width: 40%;
@@ -190,9 +204,6 @@ img.logo {
 .logo_grey {
   margin-top: 10%;
   max-width: 40px;
-}
-.modal img {
-  max-width: 100%;
 }
 .nav {
   clear: both;
@@ -212,8 +223,9 @@ img.logo {
   display: block;
   content: "";
 }
-p.nav_arrow {
+.nav_arrow {
   margin: 3px 0 0;
+  float: left;
 }
 .nav_arrow a {
   display: block;
@@ -230,71 +242,66 @@ p.nav_arrow {
   transition-duration: .5s;
   margin-left: 0;
 }
+.nav_arrow #arrow_left::hover {
+  background-image: url(images/Elliv_arrow_left_hover.png);
+  transition-duration: .5s;
+}
 .nav_arrow #arrow_right {
   background-image: url(images/Elliv_arrow_right.png);
   margin-right: 0;
-}
-.nav_arrow #arrow_left:hover {
-  background-image: url(images/Elliv_arrow_left_hover.png);
-  transition-duration: .5s;
 }
 .nav_arrow #arrow_right:hover {
   background-image: url(images/Elliv_arrow_right_hover.png);
   transition-duration: .5s;
 }
-.nav_button,
-.nav_arrow {
+.nav_button {
   float: left;
   margin-left: 4.5%;
   margin-right: 4.5%;
 }
-/* Incomplete */
 .nav_button a {
   display: block;
   width: 18px;
   height: 24px;
+  color: rgba(0, 0, 0, 0);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center 14.285714%;
-  color: rgba(0, 0, 0, 0);
   background-image: url(images/sprite-dots.png);
 }
-.nav_button.nav_review a,
-.nav_button.nav_review a:hover {
-  background-position: center center;
-}
-/* Incomplete hover */
-.nav_button a:hover {
-  background-position: center 0%;
-}
-/* Incomplete selected */
-.nav_button #current {
-  background-position: center 42.857143%;
-}
-/* Incomplete selected hover */
-.nav_button #current:hover {
-  background-position: center 28.571429%;
-}
-/* Completed */
 .nav_button a.completed {
   background-position: center 71.428571%;
 }
-/* Completed hover */
 .nav_button a.completed:hover {
   background-position: center 57.142857%;
 }
-/* Completed selected */
-.nav_button a#current.completed {
+.nav_button a:hover {
+  background-position: center 0%;
+}
+.nav_button #current {
+  background-position: center 42.857143%;
+}
+.nav_button #current.completed {
   background-position: center 100%;
 }
-/* Completed selected hover */
-.nav_button a#current.completed:hover {
+.nav_button #current.completed:hover {
   background-position: center 85.714286%;
 }
-.nav_button .submit {
+.nav_button #current:hover {
+  background-position: center 28.571429%;
+}
+.nav_button.nav_review a {
+  background-position: center center;
   background-image: url(images/Elliv_submitIcon.png);
 }
-.nav_button .submit:hover {
+.nav_button.nav_review a:hover {
+  background-position: center center;
+  background-image: url(images/Elliv_submitIcon_hover.png);
+}
+.nav_button.submit {
+  background-image: url(images/Elliv_submitIcon.png);
+}
+.nav_button.submit:hover {
   background-image: url(images/Elliv_submitIcon_hover.png);
   transition-duration: .5s;
 }
@@ -309,18 +316,6 @@ p.nav_arrow {
   position: relative;
   height: 25vh;
   background-color: #ffffff;
-}
-#nominee1 {
-  background-color: #afbf36;
-}
-#nominee2 {
-  background-color: #f47421;
-}
-#nominee3 {
-  background-color: #0b4358;
-}
-#nominee4 {
-  background-color: #1a8b71;
 }
 .nominee.selected .nominee_photo {
   display: none;
@@ -343,27 +338,39 @@ p.nav_arrow {
 .nominee.selected#nominee4 a {
   color: #1a8b71;
 }
-.nominee_text {
+.nominee#nominee1,
+.nominee#nominee1 .nominee_info {
+  background-color: #afbf36;
+}
+.nominee#nominee2,
+.nominee#nominee2 .nominee_info {
+  background-color: #f47421;
+}
+.nominee#nominee3,
+.nominee#nominee3 .nominee_info {
+  background-color: #0b4358;
+}
+.nominee#nominee4,
+.nominee#nominee4 .nominee_info {
+  background-color: #1a8b71;
+}
+.nominee_info {
   display: block;
-  position: absolute;
-  height: 25vh;
-  width: 80%;
-  padding: 10.75vh 10% 0;
-  margin: 0px;
-  z-index: 2;
-  text-shadow: 0 0 3px black;
-  font-size: 2.5em;
-  transition-duration: .5s;
+  float: left;
+  width: 20%;
+  padding: 0px;
+  margin-left: 80%;
+  padding-top: 9.5vh;
+  height: 100%;
   box-sizing: border-box;
-}
-.selected .nominee_text {
-  text-shadow: none;
-}
-.nominee_text:hover {
-  font-size: 3em;
-  background-color: rgba(255, 255, 255, 0.2);
   transition-duration: .5s;
-  padding: 9.5vh 6%;
+  text-indent: -9999px;
+  background-image: url(images/Elliv_checkIcon_border.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.nominee_info:hover {
+  background-image: url(images/Elliv_checkIcon_transparent.png);
 }
 .nominee_photo {
   display: block;
@@ -380,20 +387,21 @@ p.nav_arrow {
   margin: auto;
   width: 100%;
 }
-.nominee_info {
+.nominee_text {
   display: block;
-  float: left;
-  width: 20%;
-  padding: 0px;
-  margin-left: 80%;
-  padding-top: 9.5vh;
-  height: 100%;
+  position: absolute;
+  height: 25vh;
+  width: 80%;
+  padding: 10.75vh 10% 0;
+  margin: 0px;
+  z-index: 2;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  font-size: 2.5em;
+  transition-duration: .5s;
   box-sizing: border-box;
-  transition-duration: .5s;
 }
-.nominee_info:hover {
+.nominee_text:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  transition-duration: .5s;
 }
 p {
   color: #ffffff;
@@ -409,7 +417,7 @@ p.iconDescription {
   font-size: 1.4em;
   padding-bottom: 15vh;
 }
-p.scrollDown {
+p .scrollDown {
   display: none;
 }
 .question_left {
@@ -444,6 +452,12 @@ p.scrollDown {
   display: block;
   content: “”;
 }
+.selected .nominee_info {
+  background-image: url(images/Elliv_checkIcon_filled.png);
+}
+.selected .nominee_text {
+  text-shadow: none;
+}
 .selection {
   display: block;
   position: absolute;
@@ -454,12 +468,12 @@ p.scrollDown {
   font-size: 2em;
   line-height: 25px;
 }
-.selection small {
-  color: #404041;
-}
 .selection:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transition-duration: .5s;
+}
+.selection small {
+  color: #404041;
 }
 #selections {
   width: 40%;
@@ -468,9 +482,6 @@ p.scrollDown {
   margin-bottom: 5vh;
   margin-top: 5vh;
   text-align: center;
-}
-#selections ul {
-  padding: 0;
 }
 #selections li {
   color: white;
@@ -482,14 +493,17 @@ p.scrollDown {
 #selections small {
   color: f47421;
 }
+#selections ul {
+  padding: 0;
+}
 @media screen and (max-width: 1000px) {
-  h2 {
-    font-size: 2.5em;
-  }
   .awardDescription p,
   .nominee_text {
     font-size: 2em;
     line-height: 30px;
+  }
+  h2 {
+    font-size: 2.5em;
   }
   .info .modal {
     width: 80%;
@@ -500,14 +514,16 @@ p.scrollDown {
     margin-left: 2%;
     margin-right: 2%;
   }
-  .nominee_text:hover {
-    font-size: 2.5em;
-  }
   .nominee_info img {
     width: 50%;
   }
 }
 @media screen and (max-width: 750px) {
+  .awardDescription p,
+  .nominee_text {
+    font-size: 1.6em;
+    line-height: 25px;
+  }
   #button_submit {
     margin-top: 10%;
   }
@@ -516,6 +532,7 @@ p.scrollDown {
   }
   h2 {
     font-size: 2.5em;
+    text-align: center;
   }
   .logo_grey {
     display: block;
@@ -525,13 +542,13 @@ p.scrollDown {
   .info .modal {
     box-sizing: border-box;
     width: 80%;
-    height: auto;
+    height: 90%;
     margin: 80px auto;
     padding: 30px;
     margin-top: 30px;
   }
   .info .modal .info_details {
-    height: auto;
+    height: 90%;
   }
   #intro {
     width: 80%;
@@ -545,39 +562,42 @@ p.scrollDown {
     padding-left: 0%;
     position: inherit;
   }
+  .nav_arrow {
+    margin: 0;
+    padding: 0;
+  }
   .nav_button a {
     width: 20px;
     height: 26.666667px;
     margin-left: 5.25%;
     margin-right: 5.25%;
   }
-  .nav_arrow {
-    margin: 0;
-    padding: 0;
-  }
   .nav_icons {
     padding: 0;
     list-style: none;
+  }
+  .nominee {
+    height: 100px;
   }
   .nominee_info img {
     width: 40%;
   }
   .nominee_text {
-    font-size: 3em;
+    font-size: 2em;
+    height: 100%;
+    padding: 30px 10px;
+  }
+  .nominee_photo {
+    height: auto;
   }
   p {
     font-size: 1.6em;
   }
-  .awardDescription p,
-  .nominee_text {
-    font-size: 1.6em;
-    line-height: 25px;
-  }
   p.iconDescription {
-    display: none;
+    padding-bottom: 0;
   }
   p.scrollDown {
-    display: block;
+    display: none;
     color: #404041;
     width: 80%;
     margin: auto;
@@ -593,7 +613,7 @@ p.scrollDown {
   }
   .question_left {
     height: auto;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
   }
   .question_right {
     position: static;
