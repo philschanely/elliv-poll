@@ -89,3 +89,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 /** LOCAL CONSTANTS **/
 define('ACCESS_LEVEL_ADMIN', 2);
 define('ACCESS_LEVEL_SUPERADMIN', 1);
+define('LOGTYPE_SIGNIN', 1);
+define('LOGTYPE_VOTE', 2);
+define('LOGTYPE_CHANGEVOTE', 3);
+define('LOGTYPE_SUBMIT', 4);
+define('LOGTYPE_VIEWQUESTION', 5);
+define('LOGTYPE_REVIEW', 6);
+define('LOGTYPE_REDIRECTEDTOEND', 7);

@@ -55,6 +55,8 @@ class Poll_model extends CI_Model {
     
     public function submit_poll($poll_id, $user_id)
     {
+        $this->load->model('log_model');
+        
         $this->db->insert('Completed_Poll', array(
             'poll'=>$poll_id,
             'user'=>$user_id
@@ -63,6 +65,8 @@ class Poll_model extends CI_Model {
         $this->db->where('poll', $poll_id);   
         $this->db->where('user', $user_id);  
         $completed_poll_info = cfr('Completed_Poll_Details', 'row');
+        
+        $this->log_model->add($user_id, LOGTYPE_SUBMIT);
         
         return $completed_poll_info;
     }

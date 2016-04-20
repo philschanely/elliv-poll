@@ -22,3 +22,12 @@ SELECT `Option`.*,
 FROM `Option` 
 JOIN `Question` ON `Option`.`question` = `Question`.`q_id` 
 JOIN `Poll` ON `Question`.`poll` = `Poll`.`poll_id`;
+
+CREATE OR REPLACE VIEW `Log_Details` AS
+SELECT Log.*, 
+    User.first_name, 
+    User.last_name, 
+    Log_Type.type_name 
+FROM Log
+JOIN User ON Log.user = User.user_id 
+JOIN Log_Type ON Log.type = Log_Type.type_id;

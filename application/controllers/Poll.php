@@ -13,7 +13,8 @@ class Poll extends CI_Controller {
         $this->user_id = $this->dso->user->user_id;
         
         $this->load->model(array(
-            'poll_model'
+            'poll_model',
+            'log_model'
         ));
     }
     
@@ -122,6 +123,8 @@ class Poll extends CI_Controller {
         $this->dso->poll_questions = $questions;
         $this->dso->return_to_review = $return_to_review;
         
+        $this->log_model->add($this->user_id, LOGTYPE_VIEWQUESTION, "{$question->label}");
+        
         show_view('question', $this->dso->all);
     }
     
@@ -135,6 +138,8 @@ class Poll extends CI_Controller {
         $this->dso->has_ballot_items = empty($ballot_items) ? FALSE : TRUE;
         $this->dso->has_no_ballot_items = empty($ballot_items) ? TRUE : FALSE;
         $this->dso->poll_id = $poll_id;
+        
+        $this->log_model->add($this->user_id, LOGTYPE_REVIEW);
         
         show_view('review', $this->dso->all);
     }
@@ -174,6 +179,7 @@ class Poll extends CI_Controller {
     {
         if ($this->poll_model->is_poll_submitted($poll_id, $user_id))
         {
+            $this->log_model->add($user_id, LOGTYPE_REDIRECTEDTOEND);
             redirect('/poll/end/' . $poll_id);
         }
     }

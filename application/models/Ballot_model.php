@@ -4,6 +4,7 @@ class Ballot_model extends CI_Model {
     public function __construct()
     {
         $this->load->database();
+        $this->load->model('log_model');
     }
     
     public function get_option_info($o_id)
@@ -22,6 +23,7 @@ class Ballot_model extends CI_Model {
         
         // Store question number
         $q_id = ($selected_option != FALSE) ? $selected_option->question : NULL;
+        $new_label = ($selected_option != FALSE) ? $selected_option->label : NULL;
         
         // Search for ballot items for this user that match question number
         $this->db->where('q_id', $q_id);
@@ -31,10 +33,12 @@ class Ballot_model extends CI_Model {
         // If they have a match...
         if ($matching_ballot_details != FALSE)
         {
+            $old_label = $matching_ballot_details->option_selected;
             // Update the matching ballot item
             $this->db->where('user', $matching_ballot_details->user);
             $this->db->where('option', $matching_ballot_details->option);
             $this->db->update('Ballot_Item', array('option'=>$o_id));
+            $this->log_model->add($user_id, LOGTYPE_CHANGEVOTE, "from {$old_label} to {$new_label}");
         }
         // Otherwise... 
         else
@@ -44,6 +48,7 @@ class Ballot_model extends CI_Model {
                 'user' => $user_id, 
                 'option' => $o_id
             ));
+            $this->log_model->add($user_id, LOGTYPE_VOTE, "for {$new_label}");
         } 
         
         // Now select the resulting ballot item details to return

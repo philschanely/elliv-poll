@@ -60,11 +60,13 @@ class MY_Authenticate extends CI_Authenticate {
     
     public function ellivpoll_login($data, $view, $redirect_to, $user)
     {
-        $this->CI->load->model('user_model');
+        $this->CI->load->model(array('user_model', 'log_model'));
         
         $this->CI->user_model->sync_user($user);
         
-        $this->check_for_auth();
+        $new_user = $this->check_for_auth();
+        
+        $this->CI->log_model->add($new_user->user_id, LOGTYPE_SIGNIN);
         
         redirect(base_url($redirect_to), 'refresh');
     }
