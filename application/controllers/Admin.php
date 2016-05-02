@@ -13,20 +13,33 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
 		
-		$this->authenticate->check_for_auth();
+        $this->authenticate->check_for_auth();
         $this->user_id = $this->dso->user->user_id;
 		
-		$this->dso->body_class = 'admin';
-		
-		if (! $this->dso->is_admin)
-		{
-			redirect('/poll/');
-		}
+        $this->dso->body_class = 'admin';
+
+        if (! $this->dso->is_admin)
+        {
+            redirect('/poll/');
+        }
     }
     
     public function index()
-	{
-		show_view('admin/main', $this->dso->all);
-	}
+    {
+        $this->load->model('poll_model');
+        $polls = $this->poll_model->get_polls_for_results();
+
+        $this->dso->polls = $polls;
+
+        show_view('admin/main', $this->dso->all);
+    }
+    
+    public function reset_ballot($poll_id=1)
+    {
+        $this->load->model('ballot_model');
+        $this->ballot_model->reset($poll_id, $this->user_id);
+        
+        redirect('/admin/');
+    }
     
 }

@@ -59,4 +59,31 @@ class Ballot_model extends CI_Model {
         return $updated_ballot_item;
     }
     
+    public function reset($poll_id, $user_id)
+    {
+        // Delete the completed poll
+        $this->db->where('user', $user_id);
+        $this->db->where('poll', $poll_id);
+        $this->db->delete('Completed_Poll');
+        
+        // Remove the ballot items
+        $this->db->select('option');
+        $this->db->where('user', $user_id);
+        $this->db->where('poll_id', $poll_id);
+        $ballot_items = cfr('Ballot_Item_Details');
+        
+        if ($ballot_items)
+        {
+            $options = array();
+            foreach ($ballot_items as $item)
+            {
+                $options[] = $item->option;
+            }
+            $this->db->where('user', $user_id);
+            $this->db->where_in('option', $options);
+            $this->db->delete('Ballot_Item');
+        }
+        
+    }
+    
 }

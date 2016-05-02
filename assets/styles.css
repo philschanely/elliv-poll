@@ -10,6 +10,44 @@ a {
   text-decoration: none;
   text-align: center;
 }
+.admin .back-to-poll {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.admin .option {
+  clear: both;
+  list-style: none;
+}
+.admin .option:after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.admin .option .option-label {
+  float: left;
+  width: 300px;
+}
+.admin .option .votes {
+  float: left;
+  width: 800px;
+  border: 1px solid black;
+  height: 20px;
+  margin-bottom: 40px;
+}
+.admin .option .vote-bar {
+  height: 100%;
+  background-color: grey;
+}
+.admin .option .vote-info {
+  font-size: 1.3em;
+  margin: 0;
+}
+.admin .reset-ballot {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 .award {
   display: block;
   position: relative;

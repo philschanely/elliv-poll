@@ -31,3 +31,5 @@ SELECT Log.*,
 FROM Log
 JOIN User ON Log.user = User.user_id 
 JOIN Log_Type ON Log.type = Log_Type.type_id;
+
+CREATE VIEW Question_Results AS SELECT question, SUM(num_votes) FROM `Option_Results` GROUP BY question;

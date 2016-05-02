@@ -1,3 +1,6 @@
+{is_admin?}
+<a class="link-admin" href="/admin/">Admin Panel</a>
+{/is_admin?}
 <img class="logo" src="/assets/images/Elliv_logo_white.png" alt="Elliv logo">
 <h1><small>Thank you for completing the</small><br> {poll_title}</h1>
 <div id="selections">

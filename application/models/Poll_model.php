@@ -33,11 +33,45 @@ class Poll_model extends CI_Model {
         
         return $question;
     }
+	
+    public function get_questions($poll_id, $load_options=FALSE, $load_results=FALSE)
+    {
+        $this->load->model('question_model');
+		
+        $this->db->where('poll', $poll_id);   
+        $this->db->order_by('order');
+        $questions = checkForResults($this->db->get('Question'));
+        
+        if ($questions && $load_options)
+        {
+            foreach ($questions as &$question)
+            {
+                $question->options = $this->question_model->get_options($question->q_id, NULL, $load_results);	
+                
+                if ($load_results)
+                {
+                    $total_votes = $this->question_model->get_total_votes($question->q_id);
+                }
+                
+                foreach ($question->options as &$option)
+                {
+                    $option->option_label = $option->label;
+                    if ($load_results)
+                    {
+                        $option->percentage = $total_votes > 0 
+                            ? round($option->num_votes/$total_votes * 100, 2)
+                            : '--';
+                    }
+                }
+            }
+        }
+
+        return $questions;
+    }
     
     public function get_num_questions($poll_id)
     {
-        $this->db->where('poll', $poll_id);   
-        $questions = checkForResults($this->db->get('Question'));
+        $questions = $this->get_questions($poll_id);
         
         return count($questions);
     }
@@ -98,4 +132,20 @@ class Poll_model extends CI_Model {
         
         return $answered_questions;
     }
+	
+	public function get_polls_for_results()
+	{
+            $this->db->order_by('title');
+            $polls = cfr('Poll');
+
+            if (!empty($polls))
+            {
+                foreach ($polls as &$poll)
+                {
+                    $poll->questions = $this->get_questions($poll->poll_id, TRUE, TRUE);
+                }
+            }
+
+            return $polls;
+	}
 }

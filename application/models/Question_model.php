@@ -2,19 +2,26 @@
 class Question_model extends CI_Model {
     
     
-    public function get_options($q_id, $user_id=NULL)
+    public function get_options($q_id, $user_id=NULL, $load_results=FALSE)
     {
-       $this->db->where('question', $q_id);
-       $this->db->order_by('order', 'ASC');
+        $this->db->where('question', $q_id);
+        $this->db->order_by('order', 'ASC');
        
-       $options = cfr('Option');
+        if ($load_results)
+        {
+            $options = cfr('Option_Results');
+        }
+        else
+        {
+            $options = cfr('Option');
+        }
        
-       if ($options && $user_id !== NULL)
-       {
-           $this->format_options($q_id, $options, $user_id);
-       }
+        if ($options && $user_id !== NULL)
+        {
+            $this->format_options($q_id, $options, $user_id);
+        }
        
-       return $options;
+        return $options;
        
     }
     
@@ -33,5 +40,13 @@ class Question_model extends CI_Model {
                 $option->is_selected = TRUE;
             }
         }
+    }
+    
+    public function get_total_votes($q_id)
+    {
+        $this->db->where('question', $q_id);
+        $results = cfr('Question_Results', 'row');
+        
+        return $results ? $results->ttl_votes : 0;
     }
 }
