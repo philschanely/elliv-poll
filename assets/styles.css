@@ -1,0 +1,935 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 50%; opacity: 1}
+}
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 50%; opacity: 1}
+}
+body {
+    margin:auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 62.5%;
+}
+#click-msg {
+    text-transform: none;
+    font-style: italic;
+    color: black;
+    font-weight: 400;
+    letter-spacing: normal;
+    font-size:.3em;
+}
+#nominee-list:after {
+    content:'';
+    display: table;
+    float: none;
+    clear: both;
+}
+.close {
+    color: #bfab70;
+    float:right;
+    font-size: 1.7em;
+    font-weight: 700;
+    margin:0px;
+    padding: 0px 0px 0px 20px;
+    transition: .2s ease;
+    cursor: pointer;
+}
+.close:hover {
+    color: black;
+    transition: .2s ease;
+}
+.content {
+    width: 1200px;
+    margin:auto;
+}
+.content h2 {
+    font-size: 2.2em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #bfab70;
+}
+.content h3 {
+    font-size: 1.8em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: #bfab70;
+}
+.content p {
+    font-size: 1.4em;
+    line-height: 1.7em;
+}
+.desc {
+    width:300px;
+}
+.dropdown-arrow {
+    display:none;
+}
+.fb-vid {
+    width: 1160px;
+    height: 680px;
+    border: none;
+    overflow: hidden; 
+    float: left;
+}
+footer #vote-nav {
+    background-color: #bfab70;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    clear: both;
+    position: fixed;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+footer #vote-nav li {
+    float:left;
+    padding:20px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 20%;
+    box-sizing: border-box;
+    text-align: center;
+}
+footer a {
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+header {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    color: #bfab70;
+    text-transform: uppercase;
+    text-align: center;
+    font-size:1.3em;
+    font-weight: 600;
+    letter-spacing: .3em;
+    margin-bottom: 0px;
+    transition: all .2s ease;
+    margin-bottom:100px;
+    z-index: 1;
+}
+header p {
+    margin-bottom: 0px;
+}
+header.sticky #logo {
+    background: url(images/NEWGOLDE-small.png) center;
+    height: 50px;
+    width: 50px;
+    float: left;
+    position: inherit;
+    left: 0px;
+    margin-left: 20px;
+    margin-top: 17px;
+    transition: all .2s ease;
+}
+header.sticky nav ul {
+    float: none;
+    margin-top: 10px;
+    transition: .2s ease;
+}
+.header-content {
+    margin: auto;
+    position: relative;
+    width: 1200px;
+}
+html {
+    height: 100%;
+}
+h1 {
+    margin: 0px;
+    padding: 0px;
+}
+h2 {
+    color: black;
+}
+#info {
+    padding-top: 80px;
+    height: 100vh;
+}
+#info h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+#info li {
+    float: left;
+    width: 360px;
+    margin-right:30px;
+}
+#info li:last-child {
+    margin-right: 0px;
+}
+#info ul {
+    list-style: none;
+    padding: 0px;
+    margin:30px 30px 0px 30px;
+}
+#info:after {
+    display: table;
+    content: '';
+    clear: both;
+}
+#logo {
+    margin-top:20px;
+    margin-left: 50%;
+    background: url(images/elliv-h-logo.png) center;
+    width: 300px;
+    background-size:300px ;
+    position: relative;
+    left:-150px;
+    height: 60px;
+}
+.main-desc {
+    color: white;
+    position: relative;
+    top:45%;
+    text-align: center;
+    margin: 0px 20px;
+    animation: fadein 1.5s;
+}
+@keyframes fadein {
+    from {opacity: 0; top:30%;}
+    to {opacity: 1;}
+}
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; top:30%;}
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; top:30%;}
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; top:30%;}
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; top:30%;}
+    to   { opacity: 1; }
+}
+.main-desc h2 {
+    color: white;
+    font-size: 3em;
+    margin: 0px;
+}
+.main-desc p {
+    font-size: 1.8em;
+}
+#main-img {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width:100vw;
+    height:100vh;
+    -webkit-transition: all 0.7s ease;
+	-moz-transition: all 0.7s ease;
+	-ms-transition: all 0.7s ease;
+	-o-transition: all 0.7s ease;
+	transition: background-image 0.7s ease;
+}
+.modal-content {
+    background-color: #fefefe;
+    box-sizing: border-box;
+    padding: 10px 15px 20px 20px;
+    border: 1px solid #888;
+    width: 500px;
+    position: absolute;
+    margin-top: -100px;
+    left: 50%;
+    margin-left:-250px;
+    z-index: 4;
+    -webkit-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.44);
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.44);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+.modal-content img {
+    width: 50%;
+    margin-right:20px;
+    float: left;
+}
+.modal-header h2 {
+    color: #bfab70;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: .1em;
+    padding: 0px;
+    margin: 0px 0px 15px 0px;
+}
+.modal-content p {
+    font-size: 1.4em;
+}
+nav:after {
+    content: " ";
+    display: table;
+    clear: both;
+    float: none;
+}
+nav a {
+    color: #bfab70;
+    display: block;
+    padding:20px 40px;
+    font-size: 1.4em;
+    text-decoration: none;
+    transition: .2s ease;
+}
+nav a:hover {
+    color: black;
+    transition: .2s ease;
+}
+nav li {
+    float: left;
+    position: relative;
+    right: 50%;
+}
+nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    left: 50%;
+    float: left;
+}
+.nav-btn {
+    font-weight: 600;
+    font-size: 1.4em;
+    letter-spacing: .2em;
+    transition: .2s ease;
+    position: relative;
+}
+.nav-btn:hover {
+    letter-spacing: .3em;
+    transition: .2s ease;
+}
+.nav-btn .nominee-page {
+    position: absolute;
+    left:50%;
+    margin-left: -8px;
+}
+.nominee-page {
+    float: left;
+    margin: 0px 15px 0px 5px;
+    text-indent: -9999px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border: 3px solid white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    transition: .3s ease;
+}
+.on-page {
+    float: left;
+    margin: 0px 15px 0px 5px;
+    text-indent: -9999px;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border: 3px solid white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+.nominee {
+    background-color: #d6d6d6;
+    box-sizing: border-box;
+    margin-bottom:20px;
+    padding:20px 10px;
+    transition: .3s ease;
+    width: 800px;
+    margin-left: 50%;
+    position: relative;
+    left:-400px;
+    float: left;
+}
+.nominee:after {
+    clear: both;
+    content: '';
+    float: none;
+}
+.nominee:nth-child(2) {
+    margin-right: 0px;
+}
+.nominee:last-child {
+    margin-right: 0px;
+}
+.nominee-description {
+    display: none;
+}
+.nominee-header {
+    text-align:center;
+    font-size: 1.4em;
+}
+.nominee-header:hover .nominee-title {
+    letter-spacing: .2em;
+    transition: .2s ease;
+}
+#nominee-list {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+#nominee-list:after {
+    content:'';
+    display: table;
+    float: none;
+    clear: both;
+}
+.nominee-title {
+    color:white;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: .2s ease;
+    margin-left:-30px;
+}
+.nominee-vote {
+    float:left;
+    margin:0px 15px 0px 5px;
+    text-indent:-9999px;
+	width: 14px;
+	height: 14px;
+	background: white;
+    border: 3px solid white;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+    transition: .3s ease;
+}
+.nominee-vote:hover {
+    float:left;
+    margin:0px 15px 0px 5px;
+    text-indent:-9999px;
+	width: 14px;
+	height: 14px;
+	background: black;
+    border: 3px solid white;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+    transition: .3s ease;
+}
+.scroll-down img {
+    width:50px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left:-25px;
+    transition: all 1s ease;
+}
+.select-circle {
+    float:left;
+    margin:0px 15px 0px 5px;
+    text-indent:-9999px;
+	width: 14px;
+	height: 14px;
+	background: black;
+    border: 3px solid white;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+    transition: .3s ease;
+}
+.select-nominee {
+    background-color: #bfab70;
+    transition: .3s ease;
+}
+.shade {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: .4s ease;
+}
+.show {
+    display: block;
+}
+#social-media {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top:20px;
+    right: 20px;
+}
+#social-media a {
+    display: block;
+    height: 25px;
+    width: 25px;
+}
+#social-media li {
+    float: left;
+    display: block;
+    margin-right: 10px;
+    height: 25px;
+    width: 25px;
+}
+#social-media a#facebook-link {
+    background: url(images/sm-facebook-g.png) no-repeat center top;
+    height 25px;
+    width: 25px;
+    transition: .2s ease;
+}
+#social-media a#facebook-link:hover {
+    background: url(images/sm-facebook-b.png) no-repeat center top;
+    height 25px;
+    width: 25px;
+    transition: .2s ease;
+}
+#social-media a#instagram-link {
+    background: url(images/sm-instagram-g.png) no-repeat center top;
+    height 25px;
+    width: 25px;
+    transition: .2s ease;
+}
+#social-media a#instagram-link:hover {
+    background: url(images/sm-instagram-b.png) no-repeat center top;
+    height 25px;
+    width: 25px;
+    transition: .2s ease;
+}
+#social-media a#twitter-link {
+    background: url(images/sm-twitter-g.png) no-repeat center top;
+    height 25px;
+    width: 25px;
+    transition: .2s ease;
+}
+#social-media a#twitter-link:hover {
+    background: url(images/sm-twitter-b.png) no-repeat center top;
+    height 25px;
+    width: 25px;
+    transition: .2s ease;
+}
+.rotated {
+  transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+#video-feed {
+    padding: 50px 20px;
+    margin: auto;
+    box-sizing: border-box;
+}
+#video-feed ul {
+    list-style: none;
+    padding: 0px;
+}
+#vote-header {
+    background-color: white;
+    background: inherit;
+    position: inherit;
+    color: #bfab70;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size:1.3em;
+    font-weight: 600;
+    letter-spacing: .3em;
+    margin-bottom: 20px;
+}
+#vote-header #logo {
+    margin-top:20px;
+    margin-left: 0px;
+    background: inherit;
+    height: inherit;
+    width: inherit;
+    position: inherit;
+    left:0px;
+}
+#vote-header #logo img {
+    width: 10%;
+}
+#vote-header p {
+    margin-bottom: 0px;
+}
+#vote-link {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    background-image: url(images/elliv-9.jpg);
+     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+}
+#vote-link a {
+    border: 5px solid #bfab70;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    position: relative;
+    padding: 40px;
+    width:700px;
+    top:40%;
+    left:50%;
+    margin-left:-350px;
+    color: #bfab70;
+    display: block;
+    font-size: 5em;
+    transition: all .2s ease;
+}
+#vote-link a:hover {
+    border-color: white;
+    color: white;
+    transition: all .2s ease;
+}
+#vote-link p {
+    color: white;
+    font-size: 2em;
+    width: 400px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -200px;
+}
+#vote-main {
+    margin-bottom: 90px;
+}
+#vote-main:after {
+    content: '';
+    clear: both;
+    float: none;
+}
+@media only screen and (max-width: 1199px) {
+    .content {
+        width: 768px;
+        margin:auto;
+    }
+    .fb-vid {
+        width: 728px;
+        height: 438px;
+        border: none;
+        overflow: hidden; 
+    }
+    header {
+        font-size:1em;
+        margin-bottom: 0px;
+        transition: all .2s ease;
+        margin-bottom:100px;
+    }
+    header.sticky #logo {
+        margin-top: 10px;
+    }
+    .header-content {
+        width: 768px;
+        margin: auto;
+    }
+    #info {
+    padding-top: 80px;
+    margin: auto;
+    height: 100vh;
+    }
+    #info h2 {
+        text-align: center;
+        text-decoration: underline;
+    }
+    #info li {
+        width: 216px;
+    }
+    #logo {
+        margin-left:50%;
+        position: relative;
+        left: -150px;
+        background-size: 300px;
+        width: 300px;
+        height: 58px;
+    }
+    nav a {
+        padding:20px 25px;
+    }
+    .nominee {
+        width: 768px;
+        margin-left: 50%;
+        position: relative;
+        left:-384px;
+    }
+    #video-feed {
+        margin: auto;
+        padding: 50px 20px;
+        box-sizing: border-box;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .content {
+        width:480px;
+        margin: auto;
+    }
+    #click-msg {
+        display:none;
+    }
+    .dropdown-arrow {
+        display: block;
+        float: right;
+        width:20px;
+        margin: 5px;
+      -moz-transition: transform .5s;
+      -webkit-transition: transform .5s;
+      transition: transform .5s;
+    }
+    .fb-vid {
+        width: 440px;
+        height: 280px;
+        border: none;
+        overflow: hidden; 
+    }
+    header {
+        font-size:.6em;
+        margin-bottom: 0px;
+        transition: none;
+        margin-bottom:100px;
+    }
+    .header-content {
+        width: 480px;
+        margin: auto;
+    }
+    header.sticky #logo {
+        height: 30px;
+        width: 30px;
+        background-size:30px;
+        margin-left: 20px;
+        margin-right:10px;
+        margin-top: 20px;
+        transition: none;
+    }
+    header.sticky nav ul {
+        transition: none;
+    }
+    #info {
+        height: inherit;
+        margin-bottom: 90px;
+    }
+    #info li {
+        float: none;
+        width: inherit;
+        margin-top:50px;
+    }
+    #logo {
+        margin-left: 50%;
+        background-size: 200px;
+        width: 200px;
+        height: 37px;
+        position: relative;
+        left: -100px;
+        transition: none;
+    }
+    .modal-content {
+        background-color: inherit;
+        margin: 0px;
+        padding: 0px;
+        border: inherit;
+        width: inherit;
+        position:inherit;
+        -webkit-box-shadow: inherit;
+        -moz-box-shadow: inherit;
+        box-shadow: inherit;
+        z-index: 4;
+    }
+    .modal-content img {
+        width: inherit;
+        margin-right:inherit;
+        float: none;
+    }
+    .modal-header {
+        display: none;
+    }
+    .nominee {
+        margin-bottom: 10px;
+        margin-left:0px;
+        width: 100%;
+        float: none;
+        position: inherit;
+        left: 0px;
+    }
+    nav a {
+        padding: 20px 15px;
+    }
+    .nav-btn {
+        letter-spacing: inherit;
+        font-size: 1em;
+    }
+    .nav-btn:hover {
+        letter-spacing: inherit;
+    }
+    .nominee-description {
+        padding:15px;
+    }
+    .nominee-description img {
+        width: 100%;
+    }
+    #nominee-list {
+        margin: 0px 10px 0px 10px;
+    }
+    .nominee-page {
+        margin: 0px 0px 0px 0px;
+    }
+    #social-media {
+        display: none;
+    }
+    #video-feed {
+        box-sizing: border-box;
+        margin: auto;
+        padding: 50px 20px;
+    }
+    #vote-header #logo img {
+        width:30%;
+    }
+    #vote-link a {
+        font-size: 2.5em;
+        width: 320px;
+        margin-left: -160px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    body {
+        width:100%;
+    }
+    #click-msg {
+        display:none;
+    }
+    .dropdown-arrow {
+        display: block;
+        float: right;
+        width:20px;
+        margin: 5px;
+      -moz-transition: transform .5s;
+      -webkit-transition: transform .5s;
+      transition: transform .5s;
+    }
+    .fb-vid {
+        width: 320px;
+        height: 190px;
+    }
+    header {
+        transition: none;
+    }
+    .header-content {
+        width: 100%;
+    }
+    header.sticky #logo {
+        background: url(images/NEWGOLDE-small.png) center;
+        background-size: 23px;
+        height: 23px;
+        width: 23px;
+        float: none;
+        position: relative;
+        left: 50%;
+        margin-left:-23px;
+        margin-top: 17px;
+        transition: none;
+    }
+    header.sticky nav ul {
+        margin-top: 0px;
+        transition: none;
+        float: left;
+    }
+    #info {
+        width: 100%;
+        margin: auto;
+        padding-bottom: 50px;
+    }
+    #info li {
+        width:inherit;
+        margin-right: 0px;
+    }
+    #info ul {
+        padding: 0px;
+    }
+    .main-desc {
+        animation: none;
+    }
+    .modal-content {
+        background-color: inherit;
+        margin: 0px;
+        padding: 0px;
+        border: inherit;
+        width: inherit;
+        position:inherit;
+        -webkit-box-shadow: inherit;
+        -moz-box-shadow: inherit;
+        box-shadow: inherit;
+    }
+    .modal-content img {
+        width: inherit;
+        margin-right:inherit;
+        float: none;
+    }
+    .modal-header {
+        display: none;
+    }
+    .nominee {
+        margin-bottom: 10px;
+        width: 100%;
+        float: none;
+    }
+    .nominee-description {
+        padding:15px;
+    }
+    .nominee-description img {
+        width: 100%;
+    }
+    #nominee-list {
+        margin: 0px 10px 0px 10px;
+    }
+    .nominee-page {
+        margin: 0px 0px 0px 0px;
+        width: 7px;
+        height: 7px;
+        border: 2px solid white;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        transition: none;
+    }
+    .on-page {
+        margin: 0px 0px 0px 0px;
+        width: 7px;
+        height: 7px;
+        background: black;
+        border: 2px solid white;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        transition: none;
+    }
+    #video-feed {
+        margin: auto;
+        padding: 80px 20px;
+    }
+    #vote-header #logo img {
+        width:30%;
+    }
+    #vote-link {
+        width: 100%:
+    }
+}
