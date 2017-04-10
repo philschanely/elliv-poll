@@ -1,6 +1,4 @@
-<h1><small>Elliv Poll</small><br/>
-    Sign in</h1>
-
+<h1><small>Elliv Poll</small><br/> Sign in</h1>
 <form action="{base_url}authenticate/login" method="post">
     {login_error?}
     <p class="alert alert-warning">{message}</p>

@@ -24,17 +24,17 @@ class Admin extends CI_Controller {
         }
     }
     
-    public function index()
+    public function index($poll_id=CURRPOLL)
     {
         $this->load->model('poll_model');
-        $polls = $this->poll_model->get_polls_for_results();
+        $polls = $this->poll_model->get_polls_for_results($poll_id);
 
         $this->dso->polls = $polls;
 
         show_view('admin/main', $this->dso->all);
     }
     
-    public function reset_ballot($poll_id=1)
+    public function reset_ballot($poll_id=CURRPOLL)
     {
         $this->load->model('ballot_model');
         $this->ballot_model->reset($poll_id, $this->user_id);

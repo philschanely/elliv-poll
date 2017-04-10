@@ -133,9 +133,10 @@ class Poll_model extends CI_Model {
         return $answered_questions;
     }
 	
-	public function get_polls_for_results()
+	public function get_polls_for_results($poll_id=CURRPOLL)
 	{
             $this->db->order_by('title');
+            $this->db->where('poll_id', $poll_id);
             $polls = cfr('Poll');
 
             if (!empty($polls))

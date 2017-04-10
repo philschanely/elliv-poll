@@ -1,91 +1,80 @@
-<!DOCTYPE>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Elliv Poll</title>
-        <meta name="viewport" content="width=device-width, initial-scal=1.0">
-        <link href="styles.css" type="text/css" rel="stylesheet" />
-        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-
-    </head>
-    <body>
-        <div class="question_left">
-            <h1><img class="logo_grey" src="images/Elliv_logo_grey.png" alt="Elliv 2016"></h1>
-
-            <h2>Unsung Hero</h2>
-            <div class="awardDescription">
-                <p>This is all about honoring the Cedarville student who lives behind the scenes and makes the lives of other students better through their humble, joyful, and serving spirit.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{page_title}</title>
+    <link type="text/css" rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="{body_class}">
+<div class="question">
+    <h1><img src="#" alt="Elliv" /></h1>
+    <h2>{question.label}</h2>
+    <div class="award-description">
+        {question.details}
+    </div>
+</div>
+<div class="options">
+    <ul>
+        {options}
+        <li id="nominee-{order}" class="nominee {is_selected?}selected{/is_selected?}">
+            <a class="nominee-text" href="#nominee-{order}-info" title="Click for more information" >{label}</a>
+            {has_image?}
+            <div class="nominee-photo">
+                <img src="{asset}" />
             </div>
-            <p class="iconDescription">You can click on the information icon to view more information on each nominee.</p>
-            <p class="scrollDown">Scroll down to choose your nominee</p>
-        </div>
-        <div class="question_right">
-            <ul>
-                <li class="nominee" id="nominee1">
-                    <a class="nominee_text" href="#">Nominee One</a>
-                    <div class="nominee_photo">
-                        <img src="images/smile_photo_v1.jpg">
+            {/has_image?}
+            <a id="nominee-{order}" href="/poll/save_selection/{o_id}/{return_to_review}"
+               class="nominee-info" title="Click to vote for this nominee">
+                Vote for this nominee
+            </a>
+            <div id="nominee-{order}-info" class="info">
+                <div class="modal">
+                    <h2>{label}</h2>
+                    <a href="#nominee-{order}" title="Close" class="close">&times;</a>
+                    <div class="info-details">
+                        {info}
                     </div>
-                    <a href="#nominee1_info" title="Click for more information" id="nominee2_info" class="nominee_info"><img src="images/Elliv_infoIcon.png" alt="Info"></a>
-                </li>
-                <li class="nominee" id="nominee2">
-                    <a class="nominee_text" href="#">Nominee Two</a>
-                    <div class="nominee_photo">
-                        <img src="images/smile_photo_v2.jpg">
-                    </div>
-                    <a href="#nominee1_info" title="Click for more information" id="nominee2_info" class="nominee_info"><img src="images/Elliv_infoIcon.png" alt="Info"></a>
-                </li>
-                <li class="nominee" id="nominee3">
-                    <a class="nominee_text" href="#">Nominee Three</a>
-                    <div class="nominee_photo">
-                        <img src="images/smile_photo_v3.jpg">
-                    </div>
-                    <a href="#nominee1_info" title="Click for more information" id="nominee3_info" class="nominee_info"><img src="images/Elliv_infoIcon.png" alt="Info"></a>
-                </li>
-                <li class="nominee" id="nominee4">
-                    <a class="nominee_text" href="#">Nominee Four</a>
-                    <div class="nominee_photo">
-                        <img src="images/smile_photo_v4.jpg">
-                    </div>
-                    <a href="#nominee1_info" title="Click for more information" id="nominee4_info" class="nominee_info"><img src="images/Elliv_infoIcon.png" alt="Info"></a>
-                </li>
-            </ul>
-        </div>
-        <div class="nav">
-            <p class="nav_arrow">
-                <a id="arrow_left" href="#">Back Button</a>
-            </p>
-            <ul class="nav_icons">
-                <li class="nav_button">
-                    <a id="current" href="#">Question One</a>
-                </li>
-                <li class="nav_button">
-                    <a href="#">Question Two</a>
-                </li>
-                <li class="nav_button">
-                    <a href="#">Question Three</a>
-                </li>
-                <li class="nav_button">
-                    <a href="#">Question Four</a>
-                </li>
-                <li class="nav_button">
-                    <a href="#">Question Five</a>
-                </li>
-                <li class="nav_button">
-                    <a title="Submission page" class="submit" href="submit.html"></a>      
-                </li>
-            </ul>
-            <p class="nav_arrow">
-                <a title="Next Button" class="nav_arrow" id="arrow_right" href="#"></a>
-            </p>
-        </div>
-        <div class="info" id="nominee1_info">
-            <a href="#close" class="close_black"></a>
-            <div class="modal">
-                <h2>Nominee One</h2>
-                <a href="#close" title="Close" class="close_button">X</a>
-                <p class="info_paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id ultricies leo. Nulla facilisi. Sed sed dui ante. Praesent blandit aliquet leo et gravida. Aliquam non est a magna dignissim hendrerit. Donec mollis leo magna, at tempor ligula vulputate in. Nullam est odio, porta non nibh a, posuere feugiat felis. Nunc dui justo, faucibus id metus a, rutrum ultricies enim. Quisque nec sem vel arcu lobortis molestie ut at sem. Morbi luctus enim purus. Nulla tempus vestibulum mi, at imperdiet risus fermentum sed.</p>
+                </div>
+                <a href="#nominee-{order}" title="Close" class="close-full"></a>
             </div>
-        </div>
-    </body>
+        </li>
+        {/options}
+    </ul>
+</div>
+<div class="nav">
+    <p class="nav-arrow">
+        <a class="arrow-left"
+           {is_first_question?}href="/poll/index/{poll_id}"{/is_first_question?}
+        {is_not_first_question?}href="/poll/question/{poll_id}/{previous_question}"{/is_not_first_question?}>
+        Back Button
+        </a>
+    </p>
+
+    <ul class="nav-icons">
+        {poll_questions}
+        <li class="nav-button">
+            <a class="{is_current?}current{/is_current?} {is_completed?}completed{/is_completed?}"
+               href="/poll/question/{poll_id}/{number}">
+                Question {number}
+            </a>
+        </li>
+        {/poll_questions}
+        <li class="nav-button nav-review">
+            <a href="/poll/review/{poll_id}" class="submit">
+                Submission page
+            </a>
+        </li>
+    </ul>
+
+    <p class="nav-arrow">
+        <a id="arrow-right"
+           {is_last_question?}href="/poll/review/{poll_id}"{/is_last_question?}
+        {is_not_last_question?}href="/poll/question/{poll_id}/{next_question}"{/is_not_last_question?}>
+        Next Button
+        </a>
+    </p>
+
+</div>
+</body>
 </html>

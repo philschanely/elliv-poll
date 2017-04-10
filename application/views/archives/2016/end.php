@@ -1,13 +1,9 @@
 {is_admin?}
 <a class="link-admin" href="/admin/">Admin Panel</a>
 {/is_admin?}
-
-<img src="#" alt="Elliv" />
-
-<h1><small>Thank you for completing the</small><br/>
-    {poll_title}</h1>
-
-<div class="selections">
+<img class="logo" src="/assets/images/Elliv_logo_white.png" alt="Elliv logo">
+<h1><small>Thank you for completing the</small><br> {poll_title}</h1>
+<div id="selections">
     <p>Your ballot has been submitted. Here are your selections:</p>
     <ul>
         {ballot_items}
@@ -15,5 +11,4 @@
         {/ballot_items}
     </ul>
 </div>
-
-<a class="btn site-btn" href="http://elliv.com">Elliv.com</a>
+<a class="button" href="http://elliv.com">Elliv.com</a>

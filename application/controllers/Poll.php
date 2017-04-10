@@ -26,7 +26,7 @@ class Poll extends CI_Controller {
      * 
      * @poll_id int The id for the desired poll. 
      */
-    public function index($poll_id=1)
+    public function index($poll_id=CURRPOLL)
     {
         $this->_is_submitted($poll_id, $this->user_id);
         

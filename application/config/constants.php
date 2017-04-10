@@ -96,3 +96,5 @@ define('LOGTYPE_SUBMIT', 4);
 define('LOGTYPE_VIEWQUESTION', 5);
 define('LOGTYPE_REVIEW', 6);
 define('LOGTYPE_REDIRECTEDTOEND', 7);
+
+define('CURRPOLL', 2);
