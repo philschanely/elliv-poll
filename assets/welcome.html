@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{page_title}</title>
-    <link type="text/css" rel="stylesheet" href="/assets/styles.css" />
-</head>
-<body class="{body_class}">
-{is_admin?}
-<a class="link-admin" href="/admin/">Admin Panel</a>
-{/is_admin?}
+<html>
+    <head>
+        <title>Welcome | Elliv</title>
+        <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header id="vote-header">
+            <h1 id="logo">
+                <img src="images/NEWGOLDE.png" alt="Elliv Logo" />
+            </h1>
+            <h2>Welcome to the Elliv 2017 Poll!</h2>
+        </header>
+<section class="poll-welcome" id="vote-main">
+    <a class="link-admin" href="/admin/">Admin Panel</a>
 
-<img src="#" alt="Elliv" />
-
-<h1><small>Welcome to the</small><br />
-    {poll_title}</h1>
-
-<div class="intro">
-    {poll_intro}
-</div>
-<a class="btn vote-btn" href="/poll/question/{poll_id}/1">Vote Now</a>
+    <div class="intro">
+        This is the portal that will take you to the Elliv 2017 poll. Vote for your fellow Cedarville students for their chance to be on stage during Elliv to recieve an award!
+    </div>
+    <a class="btn vote-btn" href="/poll/question/{poll_id}/1">Vote Now</a>
+        </section>
 </body>
 </html>

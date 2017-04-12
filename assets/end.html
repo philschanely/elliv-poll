@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{page_title}</title>
-    <link type="text/css" rel="stylesheet" href="/assets/styles.css" />
-</head>
-<body class="{body_class}">
-{is_admin?}
+<html>
+    <head>
+        <title>Thank you! | Elliv</title>
+        <meta charset="utf-8" />
+        <link type="text/css" rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header id="vote-header">
+            <h1 id="logo">
+                <img src="images/NEWGOLDE.png" alt="Elliv Logo" />
+            </h1>
+            <h2>Thank you for completing the Elliv 2017 Poll!</h2>
+        </header>
+<section class="poll-end">
 <a class="link-admin" href="/admin/">Admin Panel</a>
-{/is_admin?}
-
-<img src="#" alt="Elliv" />
-
-<h1><small>Thank you for completing the</small><br/>
-    {poll_title}</h1>
-
 <div class="selections">
     <p>Your ballot has been submitted. Here are your selections:</p>
-    <ul>
-        {ballot_items}
-        <li><small>{question_label}:</small> {option_selected}</li>
-        {/ballot_items}
-    </ul>
-</div>
+        <div class="options">
+                <ul>
+                    <li class="award" id="award-{order}">
+                            <small>Best Secret Talent</small><br/>
+                            Sean Miller, Dom Jackson, &amp; Geradlt Stewart
+                    </li>
+                    <li class="award" id="award-{order}">
+                            <small>Unsung Hero</small><br/>
+                            Rebecca Adams
+                    </li>
+                    <li class="award" id="award-{order}">
+    
+                            <small>Cedarville Star</small><br/>
+                            Sarah Berman, Micah Bernard, &amp; Megan Lawrence
+                    </li>
+                    <li class="award" id="award-{order}">
+                            <small>Lookalikes</small><br/>
+                            Ashlynn Kelly &amp; Kathryn Dougherty
+                    </li>
+                </ul>
+        </div>
 
 <a class="btn site-btn" href="http://elliv.com">Elliv.com</a>
+    </div>
+        </section>
 </body>
 </html>
