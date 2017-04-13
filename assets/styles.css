@@ -70,6 +70,9 @@ body {
     background-color: #3a3a3a;
     font-size: 62.5%;
 }
+body.review-page {
+    background-color: white;
+}
 #click-msg {
     text-transform: none;
     font-style: italic;
