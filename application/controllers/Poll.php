@@ -34,7 +34,7 @@ class Poll extends CI_Controller {
         $poll = $this->poll_model->get($poll_id);
         
         // Save poll info into view data array
-        $this->dso->body_class = 'background_blue';
+        $this->dso->body_class = '';
         $this->dso->poll_title = $poll->title;
         $this->dso->poll_intro = $poll->intro;
         $this->dso->poll_id = $poll->poll_id;
@@ -57,7 +57,7 @@ class Poll extends CI_Controller {
             $this->poll_model->get_review_info($poll_id, $this->user_id);
         $poll = $this->poll_model->get($poll_id);
         
-        $this->dso->body_class = 'background_blue';
+        $this->dso->body_class = '';
         $this->dso->poll_title = $poll->title;
         $this->dso->ballot_items = $ballot_items;
         $this->dso->poll_id = $poll_id;
@@ -110,7 +110,7 @@ class Poll extends CI_Controller {
             $is_last_question = TRUE;
         }
         
-        $this->dso->body_class = '';
+        $this->dso->body_class = 'questions-page';
         $this->dso->poll_id = $poll_id;
         $this->dso->question = $question;
         $this->dso->options = $options;
@@ -133,7 +133,8 @@ class Poll extends CI_Controller {
         $this->_is_submitted($poll_id, $this->user_id);
         
         $ballot_items = $this->poll_model->get_review_info($poll_id, $this->user_id);
-        
+
+        $this->dso->body_class = 'review-page';
         $this->dso->ballot_items = $ballot_items;
         $this->dso->has_ballot_items = empty($ballot_items) ? FALSE : TRUE;
         $this->dso->has_no_ballot_items = empty($ballot_items) ? TRUE : FALSE;
