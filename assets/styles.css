@@ -7,9 +7,6 @@
     from {top: -300px; opacity: 0}
     to {top: 25%; opacity: 1}
 }
-.admin-page {
-    background-color: white;
-}
 .admin-panel {
     box-sizing: border-box;
     margin: auto;
@@ -70,7 +67,7 @@ body {
     background-color: #3a3a3a;
     font-size: 62.5%;
 }
-body.review-page {
+body.white-page {
     background-color: white;
 }
 #click-msg {
@@ -444,7 +441,6 @@ h1 {
     letter-spacing: .2em;
 }
 .poll-welcome .intro {
-    color: white;
     font-size: 1.4em;
     width: 600px;
     line-height: 1.6em;
@@ -473,9 +469,6 @@ h1 {
 }
 .question p {
     font-size: 1.4em;
-}
-.questions-page {
-    background-color: white;
 }
 .select-circle {
     float:left;
