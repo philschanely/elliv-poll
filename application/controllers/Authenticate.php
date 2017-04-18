@@ -36,7 +36,7 @@ class Authenticate extends CI_Controller {
             ? $this->input->get('ref')
             : NULL;
         
-        $this->dso->body_class = 'background_blue';
+        $this->dso->body_class = '';
         $this->dso->page_title = 'Log in';
         $this->dso->page_id = 'page-login'; 
         $this->dso->auth_in_app = FALSE;

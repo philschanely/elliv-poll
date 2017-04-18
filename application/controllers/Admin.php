@@ -16,7 +16,7 @@ class Admin extends CI_Controller {
         $this->authenticate->check_for_auth();
         $this->user_id = $this->dso->user->user_id;
 		
-        $this->dso->body_class = 'admin';
+        $this->dso->body_class = 'white-page';
 
         if (! $this->dso->is_admin)
         {
