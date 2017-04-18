@@ -15,7 +15,7 @@
                title="Click to vote for this nominee">Vote here</a>
             <div class="nominee-header">
                 <a href="#" class="nominee-title">{label}</a>
-                <img src="images/arrow-01.png" class="dropdown-arrow"/>
+                <img src="/assets/images/arrow-01.png" class="dropdown-arrow"/>
             </div>
             <div class="nominee-description">
                 <div class="modal-content">
